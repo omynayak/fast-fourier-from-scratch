@@ -1,9 +1,23 @@
 #ifndef COMPLEX_HEADER
 #define COMPLEX_HEADER
 
+#define M_PI 3.14159265358979323846
+
 #include <iostream>
-#include <cmath>
 #include <vector>
+
+inline double sqrt(const double val){
+    double term2 = (double) 1/2 * (val-1);
+    double term3 = (double) - 1/8 * (val - 1) * (val - 1);
+    double term4 = (double)  1/16 * (val - 1) * (val - 1) * (val - 1);
+
+    return 1 + term2 + term3 + term4;
+}
+
+inline double abs(const double val){
+    if(val >= 0) return val;
+    else return -val;
+}
 
 namespace comp {
 
@@ -35,7 +49,7 @@ public:
     }
 
     friend auto abs(const Complex& obj) {
-        return std::sqrt(obj.real * obj.real + obj.imag * obj.imag);
+        return sqrt(obj.real * obj.real + obj.imag * obj.imag);
     }
 };
 
@@ -52,7 +66,7 @@ inline double taylor_sine(double x)
         sum  += term;
     }
 
-    if(std::abs(sum) < 1e-9) return 0;
+    if(abs(sum) < 1e-5) return 0;
     return sum;
 }
 
@@ -66,7 +80,7 @@ inline double taylor_cosine(double x)
         sum  += term;
     }
 
-    if(std::abs(sum) < 1e-5) return 0;
+    if(abs(sum) < 1e-5) return 0;
     return sum;
 }
 
