@@ -78,5 +78,6 @@ inline comp::Complex<double> twiddle(double arg)
     return comp::Complex<double>(c, s);
 }
 
+std::vector<comp::Complex<double>> fft(const std::vector<double>& values);
 
 #endif
