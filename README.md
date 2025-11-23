@@ -52,7 +52,7 @@ $e^{-j \frac{2\pi k}{N}} = \cos\theta - j\sin\theta$
 3. **Recursive Radix-2 Cooley-Tukey Algorithm**
 Splits signal into even and odd indices and recursively combines sub-FFTs using twiddle factors.
 
-![FFT Diagram](https://www.researchgate.net/publication/321794641/figure/fig1/AS:614082222759950@1523420019485/llustration-of-Cooley-Tukey-algorithm-of-FFT.png)
+![FFT Diagram](image.png)
 
 ## Contributing
 Contributions, feedback, and suggestions are welcome! <br>
