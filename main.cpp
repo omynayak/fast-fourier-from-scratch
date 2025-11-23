@@ -12,7 +12,7 @@ int main(void)
 
     
     std::cout << "Enter values: ";
-    for (size_t i = 0; i < choice; i++)
+    for (int i = 0; i < choice; i++)
     {
         double temp;
         std::cin >> temp;
