@@ -22,6 +22,7 @@ This project focuses on *building everything manually*, from a lightweight Compl
 ├── fft.cpp
 ├── complex_header.h
 ├── Makefile
+├── image.png
 └── README.md
 ```
 
