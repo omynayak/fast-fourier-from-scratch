@@ -24,7 +24,7 @@ int main(void)
 
     std::cout << "The Fast Fourier Transform is: " << std::endl;
     for(auto value : output){
-        std::cout << value.Re() << " + " << value.Im() << "j\n";
+        std::cout << value.Re() << ((value.Im() >= 0)?(" +"):(" ")) << value.Im() << "j\n";
     }
     std::cout << std::endl;
 
