@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    std::vector<double>input;
+    comp::dyn_arr<double>input;
 
     int choice;
     do {
@@ -20,11 +20,11 @@ int main(void)
     }
     
 
-    std::vector<comp::Complex<double>> output = fft(input);
+    comp::dyn_arr<comp::Complex<double>> output = fft(input);
 
     std::cout << "The Fast Fourier Transform is: " << std::endl;
-    for(auto value : output){
-        std::cout << value.Re() << ((value.Im() >= 0)?(" +"):(" ")) << value.Im() << "j\n";
+    for(size_t i{}; i < output.size(); i++){
+        std::cout << output[i].Re() << ((output[i].Im() >= 0)?(" +"):(" ")) << output[i].Im() << "j\n";
     }
     std::cout << std::endl;
 

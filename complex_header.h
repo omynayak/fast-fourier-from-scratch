@@ -4,7 +4,7 @@
 #define M_PI 3.14159265358979323846
 
 #include <iostream>
-#include <vector>
+#include "dyn_arr.h"
 
 inline double sqrt(const double val){
     double term2 = (double) 1/2 * (val-1);
@@ -92,6 +92,6 @@ inline comp::Complex<double> twiddle(double arg)
     return comp::Complex<double>(c, s);
 }
 
-std::vector<comp::Complex<double>> fft(const std::vector<double>& values);
+comp::dyn_arr<comp::Complex<double>> fft(const comp::dyn_arr<double>& values);
 
 #endif
