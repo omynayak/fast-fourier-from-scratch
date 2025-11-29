@@ -3,7 +3,8 @@ A complete, ground-up implementation of the **Cooley-Tukey Fast Fourier Transfor
 This project focuses on *building everything manually*, from a lightweight Complex number class to twiddle factor generation using numeric series expansions.
 
 ## Features:
-- Custom Complex class (removing <complex> dependancy)
+- Custom Complex class (removing `<complex>` dependancy)
+- Custom **Dynamic Array Template (dyn_arr.h)**, removing `<vector>` dependency.
 - **Maclaurin/Taylor series** implementation for:
     - sin(x)
     - cos(x)
@@ -13,17 +14,18 @@ This project focuses on *building everything manually*, from a lightweight Compl
         Overloaded function for complex magnitude and absolute value of real numbers.
 - Radix-2 Recursive Cooley-Tukey FFT.
 - Cleanly separated code (FFT logic in `fft.cpp`, types and helpers in header).
-- Minimal dependencies (<vector> only), fast to compile.
+- Minimal dependencies (<iostream> only), fast to compile.
+
 
 ## Project Structure:
 ```
 .
-├── main.cpp
-├── fft.cpp
-├── complex_header.h
 ├── Makefile
-├── image.png
-└── README.md
+├── README.md
+├── complex_header.h
+├── dyn_arr.h
+├── fft.cpp
+└── main.cpp
 ```
 
 ## Build Instructions:
@@ -45,12 +47,14 @@ make
 1. **Complex number operations**
 Addition, subtraction, multiplication, magnitude etc are defined in the header class via operator overloading.
 
-2. **Trigonometric functions using Taylor expansion**
+2. **Custom Dynamic Array Template**
+A lightweight, STL-free alternative to `std::vector`, implemented completely from scratch using dynamic memory allocation is used internally by the FFT implementation.
+
+3. **Trigonometric functions using Taylor expansion**
 Avoids using <cmath> for the twiddle factor. Makes use of Euler's formula: <br>
 $e^{-j \frac{2\pi k}{N}} = \cos\theta - j\sin\theta$
 
-
-3. **Recursive Radix-2 Cooley-Tukey Algorithm**
+4. **Recursive Radix-2 Cooley-Tukey Algorithm**
 Splits signal into even and odd indices and recursively combines sub-FFTs using twiddle factors.
 
 ![FFT Diagram](image.png)
