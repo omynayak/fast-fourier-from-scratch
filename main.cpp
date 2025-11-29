@@ -23,7 +23,7 @@ int main(void)
     comp::dyn_arr<comp::Complex<double>> output = fft(input);
 
     std::cout << "The Fast Fourier Transform is: " << std::endl;
-    for(size_t i{}; i < output.size(); i++){
+    for(int i{}; i < output.size(); i++){
         std::cout << output[i].Re() << ((output[i].Im() >= 0)?(" +"):(" ")) << output[i].Im() << "j\n";
     }
     std::cout << std::endl;
