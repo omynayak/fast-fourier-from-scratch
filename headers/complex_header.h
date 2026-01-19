@@ -6,12 +6,14 @@
 #include <iostream>
 #include "dyn_arr.h"
 
-inline double sqrt(const double val){
-    double term2 = (double) 1/2 * (val-1);
-    double term3 = (double) - 1/8 * (val - 1) * (val - 1);
-    double term4 = (double)  1/16 * (val - 1) * (val - 1) * (val - 1);
+inline double sqrt(const float val){
+    int i = *(long *) &val;
+    i = 0x5f3759df - (i >> 1);
+    float value = *(float *) &i;
 
-    return 1 + term2 + term3 + term4;
+    for(size_t i = 0; i < 2; i++)
+        value = value * (1.5 - 0.5 * val * value * value);
+    return 1/value;
 }
 
 inline double abs(const double val){
